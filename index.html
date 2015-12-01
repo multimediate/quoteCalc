@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--///////////////////////////////////////////////////////////
+    / ABOUT: Quote Calculator
+    / CREATED BY: Jacob Wiedmann
+    / VERSION: 1.1
+    / COPYRIGHT: GoDaddy Operating Company, LLC All Rights Reserved
+    ////////////////////////////////////////////////////////////-->
+  <title>Quote Calculator</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta content="noindex, nofollow" name="robots">
+  <meta content="noindex, nofollow" name="googlebot">
+  <meta name="description" content="Use this quote calculator to give a better time estimate of work to be completed to PWS customers">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div id="main-wrapper">
+    <div id="content-body" class="container">
+      <div class="row">
+        <div class="col-md-8 ">
+          <div class="ux-card form-card">
+            <div class="row">
+              <div class="col-sm-12">
+                <h2>Enter Information Below</h2>
+                <!-- Accordion -->
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  
+                  <!-- Simple Site -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Simple Site
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <form name="simpleSiteQuoteForm">
+                          
+                          <!-- Color Change -->
+                          <div class="form-group">
+                            <label>Is there a color change?</label>
+                            <div class="radio">
+                              <label class="radio-inline"><input type="radio" name="optradio1" id="ss-colorYes" class="option" value="10" onclick="startCalc();">Yes</label>
+                              <label class="radio-inline"><input type="radio" name="optradio1" id="ss-colorNo" class="option" value="0" onclick="startCalc();" checked="checked">No</label>  
+                            </div>
+                          </div>
+
+                          <!-- Logo -->
+                          <div class="form-group">
+                            <label>Are we altering the logo?</label>
+                            <div class="radio">
+                              <label class="radio-inline"><input type="radio" name="optradio2" id="ss-logoYes" class="option" value="5" onclick="startCalc();">Yes</label>
+                              <label class="radio-inline"><input type="radio" name="optradio2" id="ss-logoNo" class="option" value="0" onclick="startCalc();" checked="checked">No</label>  
+                            </div>
+                          </div>
+
+                          <!-- Layout -->
+                          <div class="form-group">
+                            <label>Is there a layout change?</label>
+                            <div class="radio">
+                              <label class="radio-inline"><input type="radio" name="optradio3" id="ss-layoutYes" class="option" value="5" onclick="startCalc();">Yes</label>
+                              <label class="radio-inline"><input type="radio" name="optradio3" id="ss-layoutNo" class="option" value="0" onclick="startCalc();" checked="checked">No</label>  
+                            </div>
+                          </div>
+
+                          <!-- Locu -->
+                           <div class="form-group">
+                            <label>Is there a Locu menu?</label>
+                            <div class="radio">
+                              <label class="radio-inline"><input type="radio" name="optradio4" id="ss-locuYes" class="option" value="5" onclick="startCalc();">Yes</label>
+                              <label class="radio-inline"><input type="radio" name="optradio4" id="ss-locuNo" class="option" value="0" onclick="startCalc();" checked="checked">No</label>  
+                            </div>
+                          </div>
+
+                          <!-- Locu Products ssFirstBox -->
+                          <div class="form-group">
+                            <label for="ss-locuProducts">How many Locu products are there?</label>
+                            <input type="text" class="form-control" id="ss-locuProducts" name="ssFirstBox" onFocus="startCalc();" onBlur="stopCalc();">
+                          </div>
+
+                          <!-- Words ssSecondBox -->
+                          <div class="form-group">
+                            <label for="ss-words">How many words are there?</label>
+                            <input type="text" class="form-control" id="ss-words" name="ssSecondBox" onFocus="startCalc();" onBlur="stopCalc();">
+                          </div>
+
+                          <!-- Images ssThirdBox -->
+                          <div class="form-group">
+                            <label for="ss-imagesVideos">How many images/videos are there?</label>
+                            <input type="text" class="form-control" id="ss-imagesVideos" name="ssThirdBox" onFocus="startCalc();" onBlur="stopCalc();">
+                          </div>
+
+                          <!-- External Links  ssFourthBox -->
+                          <div class="form-group">
+                            <label for="ss-eLinks">How many external links are there?</label>
+                            <input type="text" class="form-control" id="ss-eLinks" name="ssFourthBox" onFocus="startCalc();" onBlur="stopCalc();">
+                          </div>
+
+                          <!-- Anchor Links ssFifthBox -->
+                          <div class="form-group">
+                            <label for="ss-aLinks">How many anchor links are there?</label>
+                            <input type="text" class="form-control" id="ss-aLinks" name="ssFifthBox" onFocus="startCalc();" onBlur="stopCalc();">
+                          </div>
+
+                          <!-- Embedded Elements ssSixthBox -->
+                          <div class="form-group">
+                            <label for="ss-embeddedElements">How many embedded elements are there?</label>
+                            <input type="text" class="form-control" id="ss-embeddedElements" name="ssSixthBox" onFocus="startCalc();" onBlur="stopCalc();">
+                          </div>
+
+                        </form>
+                      </div>
+                    </div>
+                  </div><!-- Simple Site END -->
+
+                  <!-- Website -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Website
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                        Insert Website Form Here
+                      </div>
+                    </div>
+                  </div><!-- Website END -->
+
+                  <!-- Web Store -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Web Store
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                      <div class="panel-body">
+                        Insert Web Store Form Here
+                      </div>
+                    </div>
+                  </div><!-- Web Store END -->
+                </div>
+
+
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <!-- Calculation -->
+        <div class="col-md-4">
+          <div id="calculate" class="ux-card" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+            <h2>Work Estimate</h2>
+            <div id="total">15</div>
+            <button class="btn btn-primary btn-block reset" data-toggle="collapse" data-target=".in">Clear Form</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/quoteCalc.min.js"></script>
+
+  <!-- Clear Form -->
+  <script>
+    $(".reset").bind("click", function() {
+      $("input[type=text]").val("");
+      $("input[type=radio]").attr("checked", false);
+      radioTotal = 0;
+      $("#total").html(baseline);
+      // document.getElementById('total').innerHTML = "15";
+    });
+  </script>
+
+</body>
+
+</html>

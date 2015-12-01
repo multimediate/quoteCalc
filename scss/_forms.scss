@@ -1,0 +1,92 @@
+.form-control {
+    display: block;
+    width: 100%;
+    height: 46px;
+    padding: 10px 20px;
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: $line-height-base;
+    color: #555;
+    vertical-align: middle;
+    background-color: $white;
+    border: 1px solid #bebebe;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 2px 0 0 #bebebe;
+    box-shadow: inset 0 2px 0 0 #bebebe;
+}
+
+
+
+
+// .radio,
+// .checkbox {
+//     display: block;
+//     min-height: 22px;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//     padding-left: 20px;
+//     vertical-align: middle
+// }
+// .radio label,
+// .checkbox label {
+//     display: inline;
+//     margin-bottom: 0;
+//     font-weight: 400;
+//     cursor: pointer;
+//     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+//     text-transform: none;
+//     font-size: 1em
+// }
+// .radio input[type=radio],
+// .radio-inline input[type=radio],
+// .checkbox input[type=checkbox],
+// .checkbox-inline input[type=checkbox] {
+//     float: left;
+//     margin-left: -18px
+// }
+// .radio+.radio,
+// .checkbox+.checkbox {
+//     margin-top: -5px
+// }
+// label+.checkbox,
+// label+.radio {
+//     margin-top: 3px
+// }
+// .radio-inline,
+// .checkbox-inline {
+//     display: inline-block;
+//     padding-left: 20px;
+//     margin-bottom: 0;
+//     vertical-align: middle;
+//     font-weight: 400;
+//     cursor: pointer;
+//     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+//     text-transform: none;
+//     font-size: 1em
+// }
+// .radio-inline+.radio-inline,
+// .checkbox-inline+.checkbox-inline {
+//     margin-top: 0;
+//     margin-left: 10px
+// }
+// input[type=radio][disabled],
+// input[type=checkbox][disabled],
+// .radio[disabled],
+// .radio-inline[disabled],
+// .checkbox[disabled],
+// .checkbox-inline[disabled],
+// fieldset[disabled] input[type=radio],
+// fieldset[disabled] input[type=checkbox],
+// fieldset[disabled] .radio,
+// fieldset[disabled] .radio-inline,
+// fieldset[disabled] .checkbox,
+// fieldset[disabled] .checkbox-inline {
+//     cursor: not-allowed
+// }
+// fieldset[disabled] .radio label,
+// fieldset[disabled] .radio-inline label,
+// fieldset[disabled] .checkbox label,
+// fieldset[disabled] .checkbox-inline label {
+//     cursor: not-allowed;
+//     color: #999
+// }

@@ -1,0 +1,41 @@
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $gray-base;
+    background-color: $white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+#main-wrapper {
+    padding: 150px 0;
+}
+
+
+.ux-card {
+    background-color: $white;
+    color: $gray-base;
+    -webkit-box-shadow: 4px 4px 0 0 rgba(0,0,0,.1);
+    box-shadow: 4px 4px 0 0 rgba(0,0,0,.1);
+    margin: 0 0 22px;
+    padding: 25px;
+    border-top: 10px solid $dark-green;
+}
+
+.form-card {
+    padding-left: 48.75px;
+    padding-right: 48.75px;
+}
+
+#calculate {
+	position:fixed;
+}
+
+#total {
+	font-family: $headings-font-family;
+	font-size:75px;
+	color: $orange;
+	text-align: center;
+}
