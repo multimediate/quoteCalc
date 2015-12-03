@@ -1,3 +1,11 @@
+///////////////////////////////////////////////////////////
+// ABOUT: Quote Calculator
+// CREATED BY: Jacob Wiedmann
+// VERSION: 1.2
+// COPYRIGHT: GoDaddy Operating Company, LLC All Rights Reserved
+////////////////////////////////////////////////////////////
+
+
 // ============================================
 //  	 Check Multiple Choice Questions
 //			1. Add value="XXX" to input
@@ -16,25 +24,45 @@ $('.radio-inline').click(function(){
 	radioTotal = Total;
 });
 
+//Store form field toggle
+// $(document).ready(function(){
+// 	$('.productCount').hide();
+// 	$('.optionSetCount').hide();
+
+// 	$('.radio-inline').click(function(){
+// 		if ($('#storeYes:checked')) {
+// 			$('.productCount').show();
+// 			$('.optionSetCount').show();
+// 		} else {
+// 			$('.productCount').hide();
+// 			$('.optionSetCount').hide();
+// 		};
+// 	});
+// });
+
+// $(document).ready(function() {
+// 	$('.radio-inline').click(function() {
+// 		if($("#storeYes.option:checked")  {
+// 			$('#storeChildren').show();
+// 		} else {
+// 			$('#storeChildren').hide();
+// 		}
+// 	});
+// });
+
 
 // ============================================
 //  	    Main Calculation Function
-//			Based on 90 average initial build of 8 page site
 // ============================================
 
 // Initialize Variables
 var baseline = 15; //Initial Setup of 15 minutes
-// var one = document.quoteForm.firstBox.value;
-// var two = document.quoteForm.secondBox.value;
-// var three = document.quoteForm.thirdBox.value;
-// var four = document.quoteForm.fourthBox.value;
 var one = 0;
 var two = 0;
 var three = 0;
 var four = 0;
 var five = 0;
 var six = 0;
-
 
 // Multipliers
 var oneMult = 0;
@@ -51,50 +79,17 @@ function startCalc(){
 }
 
 function calc(){
-	if ($('#collapseOne').hasClass("in")) {
+	one = $("input[name=firstBox]").val();
+	oneMult =15;
 
-		// Locu Products
-		one = $("input[name=ssFirstBox]").val();
-			oneMult = 1;
-		
-		// Words
-		two = $("input[name=ssSecondBox]").val();
-			twoMult = 0.005625; // 2000 words
-		
-		// Images and Videos
-		three = $("input[name=ssThirdBox]").val();
-			threeMult = 0.2222222222222222;
+	two = $("input[name=secondBox]").val();
+	twoMult = 4;
 
-		// External Links
-		four = $("input[name=ssFourthBox]").val();
-			fourMult = 0.5; // 30 seconds per link
-		
-		// Anchor Links
-		five = $("input[name=ssFifthBox]").val();
-			fiveMult = 0.5; // 30 seconds per link
-
-		// Embedded Elements
-		six = $("input[name=ssSixthBox]").val();
-			sixMult = 1; // 1 minute per embed
-
-	} else if ($('#collapseTwo').hasClass("in")) {
-		//Insert Website Variables here
-	} else if ($('#collapseThree').hasClass("in")) {
-		//Insert Web Store Variables here
-	} else {
-		// Reset Variables
-		one = 0;
-		two = 0;
-		three = 0;
-		four = 0;
-		five = 0;
-		six = 0;
-		seven = 0;
-	};
-
+	three = $("input[name=thirdBox]").val();
+	threeMult = 3;
 
 	// Calculate Total
-	document.getElementById('total').innerHTML = 
+	$("#total").html(
 		Math.ceil (
 		baseline +
 		(one * oneMult) + 
@@ -104,7 +99,8 @@ function calc(){
 		(five * fiveMult) + 
 		(six * sixMult) +
 		+ radioTotal
-		);
+		)
+	);
 }
 
 
