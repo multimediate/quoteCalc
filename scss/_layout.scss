@@ -8,9 +8,31 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+#top-bar {
+    background-color: $light-green;
+    color: $white;
+    font-family: $headings-font-family;
+    font-size: $font-size-base -2px;
+    font-weight: $headings-font-weight;
+    text-transform: uppercase;
+    h1 {
+        color: $white;
+        margin:15px 0;
+    }
+    .btn {
+        margin:15px 0;
+        float:right;
+    }
+}
+
+
 
 #main-wrapper {
-    padding: 150px 0;
+    padding: 50px 0;
+}
+
+#left-sidebar {
+    text-align: center;
 }
 
 
@@ -29,8 +51,13 @@ body {
     padding-right: 48.75px;
 }
 
-#calculate {
-	position:fixed;
+#generateQuote {
+    h2 {
+        margin-bottom: 10px;
+    }
+    #generated-quote {
+        max-height: 55px;
+    }
 }
 
 #total {
@@ -38,4 +65,38 @@ body {
 	font-size:75px;
 	color: $orange;
 	text-align: center;
+}
+
+
+
+
+.highlight {
+    padding: 9px 14px;
+    margin: 30px 0 0;
+    margin-bottom: 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+}
+
+
+#footer {
+    position: relative;
+    height: 70px;
+    width: 100%;
+    padding: 15px 0;
+    // padding-bottom: 10px;
+    background-color: $light-green;
+    color: $white;
+    font-size: $font-size-base;
+    .footer-copyright {
+        padding: 10px 0 0;
+        font-style: italic;
+        position: relative;
+    }
+    .footer-badge {
+        position: absolute;
+        right: 0;
+        top: 4px;
+    }
 }

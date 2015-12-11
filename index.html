@@ -6,7 +6,7 @@
   <!--///////////////////////////////////////////////////////////
     / ABOUT: Quote Calculator
     / CREATED BY: Jacob Wiedmann
-    / VERSION: 1.2
+    / VERSION: 1.2.1
     / COPYRIGHT: GoDaddy Operating Company, LLC All Rights Reserved
     ////////////////////////////////////////////////////////////-->
   <title>Quote Calculator</title>
@@ -21,6 +21,19 @@
 </head>
 
 <body>
+  <div id="top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h1>Quote Calculator</h1>
+        </div>
+        <div class="col-sm-6">
+          <a class="btn btn-primary" href="mailto:jwiedmann@godaddy.com" target="_blank">Submit Feedback</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="main-wrapper">
     <div id="content-body" class="container">
       <div class="row">
@@ -33,39 +46,73 @@
                   
                   <!-- Page Count -->
                   <div class="form-group">
-                    <label for="pageCount">How many Pages are there?</label>
+                    <label for="pageCount">How many pages are there?</label>
                     <input type="text" class="form-control" id="pageCount" name="firstBox" onFocus="startCalc();" onBlur="stopCalc();">
                   </div>
                   
+                  <!-- Page Layout Change -->
+                  <div class="form-group">
+                    <label for="layoutChange">How many pages have a layout change?</label>
+                    <input type="text" class="form-control" id="layoutChange" name="secondBox" onFocus="startCalc();" onBlur="stopCalc();">
+                  </div>
+
                   <!-- Color Change -->
                   <div class="form-group">
                     <label>Is there a color change?</label>
-                    <div class="radio">
-                      <label class="radio-inline"><input type="radio" name="optradio1" class="option" value="10" onclick="startCalc();">Yes</label>
-                      <label class="radio-inline"><input type="radio" name="optradio1" class="option" value="0" onclick="startCalc();" checked="checked">No</label>  
-                    </div>
-                  </div>
-                  
-                  <!-- Store -->
-                  <div class="form-group">
-                    <label>Is there a store?</label>
-                    <div class="radio">
-                      <label class="radio-inline"><input type="radio" name="optradio2" id="storeYes" class="option" value="90" onclick="startCalc();">Yes</label>
-                      <label class="radio-inline"><input type="radio" name="optradio2" id="storeNo" class="option" value="0" onclick="startCalc();" checked="checked">No</label>  
+                    <div class="radio btn-group" data-toggle="buttons">
+                      <label class="radio-inline btn">
+                        <input type="radio" name="optradio1" id="colorChangeYes" class="option" value="10">
+                        <span class="glyphicon glyphicon-unchecked unchecked"></span> 
+                        <span class="glyphicon glyphicon-check checked"></span>
+                        Yes
+                      </label>
+                      <label class="radio-inline btn">
+                        <input type="radio" name="optradio1" id="colorChangeNo" class="option" value="0">
+                        <span class="glyphicon glyphicon-unchecked unchecked"></span> 
+                        <span class="glyphicon glyphicon-check checked"></span>
+                        No
+                      </label>
                     </div>
                   </div>
 
-                  <div id="storeChildren">
+                  <!-- Store -->
+<!--                   <div class="form-group">
+                    <label>Is there a store?</label>
+                    <div class="radio">
+                      <label class="radio-inline"><input type="radio" name="optradio2" id="storeYes" class="option" value="90" onclick="startCalc(); openAccordion();">Yes</label>
+                      <label class="radio-inline"><input type="radio" name="optradio2" id="storeNo" class="option" value="0" onclick="startCalc(); openAccordion();" checked="checked">No</label>  
+                    </div>
+                  </div> -->
+
+                  <div class="form-group">
+                    <label>Is there a store?</label>
+                    <div class="radio btn-group" data-toggle="buttons" onclick="openAccordion();">
+                      <label class="radio-inline btn">
+                        <input type="radio" name="optradio2" id="storeYes" class="option" value="90">
+                        <span class="glyphicon glyphicon-unchecked unchecked"></span> 
+                        <span class="glyphicon glyphicon-check checked"></span>
+                        Yes
+                      </label>
+                      <label class="radio-inline btn">
+                        <input type="radio" name="optradio2" id="storeNo" class="option" value="0">
+                        <span class="glyphicon glyphicon-unchecked unchecked"></span> 
+                        <span class="glyphicon glyphicon-check checked"></span>
+                        No
+                      </label>  
+                    </div>
+                  </div>
+
+                  <div id="storeChildren" class="collapse">
                     <!-- Product Count -->
                     <div class="form-group">
                       <label for="productCount">How many products are there?</label>
-                      <input type="text" class="form-control" id="productCount" name="secondBox" onFocus="startCalc();" onBlur="stopCalc();">
+                      <input type="text" class="form-control" id="productCount" name="thirdBox" onFocus="startCalc();" onBlur="stopCalc();">
                     </div>
 
                     <!-- Option Set Count -->
                     <div class="form-group">
                       <label for="optionSetCount">How many option sets are there?</label>
-                      <input type="text" class="form-control" id="optionSetCount" name="thirdBox" onFocus="startCalc();" onBlur="stopCalc();">
+                      <input type="text" class="form-control" id="optionSetCount" name="fourthBox" onFocus="startCalc();" onBlur="stopCalc();">
                     </div>
                   </div>
 
@@ -75,30 +122,63 @@
           </div>
         </div>
         <!-- Calculation -->
-        <div class="col-md-4">
-          <div id="calculate" class="ux-card" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+        <div id="left-sidebar" class="col-md-4">
+          <div id="calculate" class="ux-card">
             <h2>Work Estimate</h2>
-            <div id="total">15</div>
-            <button class="btn btn-primary btn-block reset" data-toggle="collapse" data-target=".in">Clear Form</button>
+            <div id="total">10</div>
+            <button class="btn btn-primary btn-block reset">Clear Form</button>
+          </div>
+
+          <div id="generateQuote" class="ux-card">
+            <h2>Generate Quote</h2>
+            <button class="btn btn-primary" onclick="generateQuote();">Get HTML</button>
+            <button class="btn btn-copy" type="button" data-clipboard-target="#generated-quote">Copy</button>
+            <pre id="generated-quote" class="highlight"></pre>            
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-copyright">
+          Copyright © 1999 - 2015 GoDaddy Operating Company, LLC. All Rights Reserved.
+          <img src="https://ourlogostudio.com//images/PWSfooterbadge.jpg" alt="Powered By Professional Web Services" class="footer-badge" width="133" height="35">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <!-- <script src="js/quoteCalc.min.js"></script> -->
   <script src="js/quoteCalc.js"></script>
-
+  <script src="js/bootstrap.min.js"></script>
+    
+  <!-- Copy to Clipboard -->
+  <script src="js/clipboard.min.js"></script>
+  <script>
+    var clipboard = new Clipboard('.btn-copy');
+      clipboard.on('success', function(e) {
+          console.log(e);
+      });
+      clipboard.on('error', function(e) {
+          console.log(e);
+      });
+  </script>
+  
   <!-- Clear Form -->
   <script>
     $(".reset").bind("click", function() {
-      $("input[type=text]").val("");
-      $("input[type=radio]").attr("checked", false);
       radioTotal = 0;
+      $("input[type=text]").val("");
+      // $("input[type=radio]").attr("checked", false);
+      $(".radio-inline").removeClass('active');
+      $('#storeChildren').collapse('hide');
+      // openAccordion();
+      // $('#storeChildren').removeClass('in');
       $("#total").html(baseline);
+      $("#generated-quote").html("");
     });
   </script>
 
