@@ -82,13 +82,17 @@ body {
 
 #footer {
     position: relative;
-    height: 70px;
+    height: 90px;
     width: 100%;
+    margin-top: 20px;
     padding: 15px 0;
     // padding-bottom: 10px;
     background-color: $light-green;
     color: $white;
     font-size: $font-size-base;
+    a {
+        color: $white;
+    }
     .footer-copyright {
         padding: 10px 0 0;
         font-style: italic;
@@ -97,6 +101,6 @@ body {
     .footer-badge {
         position: absolute;
         right: 0;
-        top: 4px;
+        top: 14px;
     }
 }

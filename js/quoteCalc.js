@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 // ABOUT: Quote Calculator
 // CREATED BY: Jacob Wiedmann
-// VERSION: 1.2.1
+// VERSION: 1.2.2
 // COPYRIGHT: GoDaddy Operating Company, LLC All Rights Reserved
 ////////////////////////////////////////////////////////////
 
@@ -28,18 +28,6 @@ $('.radio-inline').change(function(){
 
 });
 
-// if ($('#storeYes').parent().hasClass('.active') {
-// 	$('#storeChildren').collapse('toggle');
-// 	$('#storeChildren').addClass("in");
-// } else {
-// 	$('#storeChildren').collapse('hide');
-// 	$('#storeChildren').removeClass("in");
-// };
-
-
-
-
-
 
 // ============================================
 //  	    Main Calculation Function
@@ -47,21 +35,23 @@ $('.radio-inline').change(function(){
 
 // Initialize Variables
 var baseline = 10; //Initial Setup of 10 minutes
-var one = 0;
-var two = 0;
-var three = 0;
-var four = 0;
-var five = 0;
-var six = 0;
+var one = 0; //Page Count
+var two = 0; //Layout Change Page Count
+var three = 0; //Product Count
+var four = 0; //Option Set Count
 
-// Multipliers
+var five = 0; // extra
+var six = 0; //extra
+
+
+// Initialize Multipliers
 var oneMult = 0;
 var twoMult = 0;
 var threeMult = 0;
 var fourMult = 0;
-var fiveMult = 0;
-var sixMult = 0;
-var sevenMult = 0;
+
+var fiveMult = 0; //extra
+var sixMult = 0; //extra
 
 
 function startCalc(){
@@ -107,22 +97,16 @@ function stopCalc(){
 // 		 	    Quote Generation
 // ============================================
 function generateQuote() {
+	//Initialize Variables
 	var genQuote = document.getElementById("generated-quote");
 	var colorChangeYes = document.getElementById("colorChangeYes");
 	var colorChangeNo = document.getElementById("colorChangeNo");
 	var storeYes = document.getElementById("storeYes");
 	var storeNo = document.getElementById("storeNo");
-	
 	var colorChange = 0;
 	var store = 0;
+	var quoteTotal = 0;
 
-	//Variable Adjustment for Notation
-	one = (one * oneMult);
-	two = (two * twoMult);
-	three = (three * threeMult);
-	four = (four * fourMult);
-	five = three;
-	six = four;
 
 	// Radio Condition Check
 	if ($('#colorChangeYes').prop("checked")) {
@@ -137,7 +121,20 @@ function generateQuote() {
 		store = $('#storeNo').attr("value");
 	};
 
-	genQuote.innerHTML ="&lt;table style=&quot;border-collapse: collapse; border-spacing: 0;&quot;&gt;&lt;tr&gt;&lt;th style=&quot;font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal; font-weight: bold; font-size: 22px; background-color: #ef6c0f; color: #ffffff; text-align: center&quot; colspan=&quot;2&quot;&gt;Work Estimate&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;Initial Setup&lt;/td&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;"+baseline+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;Pages&lt;/td&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;"+one+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;Pages w/ Layout Changes&lt;/td&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;"+two+"&lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;Color Change?&lt;/td&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;"+colorChange+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;Store?&lt;/td&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;"+store+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;Products&lt;/td&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;"+five+"&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;Option Sets&lt;/td&gt;&lt;td style=&quot;font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 1px; overflow: hidden; word-break: normal;&quot; class=&quot;tg-yw4l&quot;&gt;"+six+"&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+
+	//Calculated Line Items for Notation Purposes
+	rowOne = baseline; 					//  Initial Setup
+	rowTwo = (one * oneMult); 			//  Page Count
+	rowThree = (two * twoMult); 		//  Layout Changes
+	rowFour = colorChange; 				//  Color Change?
+	rowFive = store; 					//  Store?
+	rowSix = (three * threeMult);  		//  Product Count
+	rowSeven = (four * fourMult);		//  Option Sets
+	quoteTotal = (+rowOne + +rowTwo + +rowThree + +rowFour + +rowFive + +rowSix + +rowSeven);
+
+
+	// Generate HTML
+	genQuote.innerHTML ="&lt;table class=&quot;tg&quot; style=&quot;border-collapse: collapse;border-spacing: 0;margin: 0px auto;width: 100%;&quot;&gt; &lt;tr&gt; &lt;th class=&quot;tg-otoz&quot; colspan=&quot;2&quot; style=&quot;font-family: Arial, sans-serif;font-size: 24px;font-weight: bold;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ef6c0f;color: #ffffff;text-align: center;border-color: #000;&quot;&gt;Work Estimate&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-5frq&quot; colspan=&quot;2&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;font-style: italic;text-align: center;vertical-align: top;&quot;&gt;Shown in Minutes&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-cxkv&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;&quot;&gt;Initial Setup&lt;/td&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;" + rowOne + " &lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-cxkv&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;&quot;&gt;Pages&lt;/td&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;" + rowTwo + "&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-cxkv&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;&quot;&gt;Pages w/ Layout Changes&lt;/td&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;" + rowThree + "&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-cxkv&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;&quot;&gt;Color Change?&lt;/td&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;" + rowFour + "&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-cxkv&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;&quot;&gt;Store?&lt;/td&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;" + rowFive + "&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;Products&lt;/td&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;" + rowSix + "&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;Option Sets&lt;/td&gt; &lt;td class=&quot;tg-3we0&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;background-color: #ffffff;vertical-align: top;&quot;&gt;" + rowSeven + "&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class=&quot;tg-2ib9&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;font-weight: bold;background-color: #008a32;color: #ffffff;vertical-align: top;border-color: #000;&quot;&gt;Total Time&lt;/td&gt; &lt;td class=&quot;tg-2ib9&quot; style=&quot;font-family: Arial, sans-serif;font-size: 14px;padding: 10px 16px;border-style: solid;border-width: 1px;overflow: hidden;word-break: normal;font-weight: bold;background-color: #008a32;color: #ffffff;vertical-align: top;border-color: #000;&quot;&gt;" + quoteTotal + "&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;";
 }
 
 
@@ -145,13 +142,11 @@ function generateQuote() {
 //     Conditional Accordion Functionality
 // ============================================
 function openAccordion(){
-	if ($('#storeYes').parent().hasClass('active')) {
+	if ($('#storeYes').closest(".radio-inline").hasClass('active')) {
 		$('#storeChildren').collapse('show');
-		$('#storeChildren').addClass("in");
-	} else if ($('#storeNo').parent().hasClass('active')) {
+	} else if ($('#storeNo').closest(".radio-inline").hasClass('active')) {
 		$('#storeChildren').collapse('hide');
-		$('#storeChildren').removeClass("in");
-	} else{
+	} else {
 		$('#storeChildren').collapse('hide');
 	};
 }

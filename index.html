@@ -6,7 +6,7 @@
   <!--///////////////////////////////////////////////////////////
     / ABOUT: Quote Calculator
     / CREATED BY: Jacob Wiedmann
-    / VERSION: 1.2.1
+    / VERSION: 1.2.2
     / COPYRIGHT: GoDaddy Operating Company, LLC All Rights Reserved
     ////////////////////////////////////////////////////////////-->
   <title>Quote Calculator</title>
@@ -16,6 +16,7 @@
   <meta content="noindex, nofollow" name="robots">
   <meta content="noindex, nofollow" name="googlebot">
   <meta name="description" content="Use this quote calculator to give a better time estimate of work to be completed to PWS customers">
+
   <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -28,7 +29,7 @@
           <h1>Quote Calculator</h1>
         </div>
         <div class="col-sm-6">
-          <a class="btn btn-primary" href="mailto:jwiedmann@godaddy.com" target="_blank">Submit Feedback</a>
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/1aiOhfOIZjT0g2tWch77SI3O0P4qgJFjb9p855Bcdm9U/viewform" target="_blank">Submit Feedback</a>
         </div>
       </div>
     </div>
@@ -52,13 +53,17 @@
                   
                   <!-- Page Layout Change -->
                   <div class="form-group">
-                    <label for="layoutChange">How many pages have a layout change?</label>
-                    <input type="text" class="form-control" id="layoutChange" name="secondBox" onFocus="startCalc();" onBlur="stopCalc();">
+                    <label for="layoutChange">How many pages have a layout change?
+                    <a href="#" data-toggle="tooltip" title="Unless the content fits in the boxes as they are in the theme, it is considered a layout change"><span class="glyphicon glyphicon-question-sign"></span></a>
+                    </label>
+                      <input type="text" class="form-control" id="layoutChange" name="secondBox" onFocus="startCalc();" onBlur="stopCalc();">
                   </div>
 
                   <!-- Color Change -->
                   <div class="form-group">
-                    <label>Is there a color change?</label>
+                    <label>Is there a color change? 
+                    <a href="#" data-toggle="tooltip" title="If we are using any colors other than what is in the template, select yes."><span class="glyphicon glyphicon-question-sign"></span></a>
+                    </label>
                     <div class="radio btn-group" data-toggle="buttons">
                       <label class="radio-inline btn">
                         <input type="radio" name="optradio1" id="colorChangeYes" class="option" value="10">
@@ -76,17 +81,9 @@
                   </div>
 
                   <!-- Store -->
-<!--                   <div class="form-group">
-                    <label>Is there a store?</label>
-                    <div class="radio">
-                      <label class="radio-inline"><input type="radio" name="optradio2" id="storeYes" class="option" value="90" onclick="startCalc(); openAccordion();">Yes</label>
-                      <label class="radio-inline"><input type="radio" name="optradio2" id="storeNo" class="option" value="0" onclick="startCalc(); openAccordion();" checked="checked">No</label>  
-                    </div>
-                  </div> -->
-
                   <div class="form-group">
                     <label>Is there a store?</label>
-                    <div class="radio btn-group" data-toggle="buttons" onclick="openAccordion();">
+                    <div class="radio btn-group" data-toggle="buttons" onchange="openAccordion();">
                       <label class="radio-inline btn">
                         <input type="radio" name="optradio2" id="storeYes" class="option" value="90">
                         <span class="glyphicon glyphicon-unchecked unchecked"></span> 
@@ -126,12 +123,12 @@
           <div id="calculate" class="ux-card">
             <h2>Work Estimate</h2>
             <div id="total">10</div>
-            <button class="btn btn-primary btn-block reset">Clear Form</button>
+            <button type="button" class="btn btn-primary btn-block reset">Clear Form</button>
           </div>
 
           <div id="generateQuote" class="ux-card">
             <h2>Generate Quote</h2>
-            <button class="btn btn-primary" onclick="generateQuote();">Get HTML</button>
+            <button class="btn btn-primary" type="button" onclick="generateQuote();">Get HTML</button>
             <button class="btn btn-copy" type="button" data-clipboard-target="#generated-quote">Copy</button>
             <pre id="generated-quote" class="highlight"></pre>            
           </div>
@@ -143,8 +140,9 @@
   <div id="footer">
     <div class="container">
       <div class="row">
-        <div class="footer-copyright">
-          Copyright © 1999 - 2015 GoDaddy Operating Company, LLC. All Rights Reserved.
+        <div class="col-sm-12 footer-copyright">
+          Copyright © 1999 - 2015 GoDaddy Operating Company, LLC. All Rights Reserved. <br>
+          <a href="https://docs.google.com/forms/d/10MSTkq1JsKPpLxwxhGeGkY5ByQH-vBsFdxVRy5lC5Nc/viewform" target="_blank">Builder Form</a>
           <img src="https://ourlogostudio.com//images/PWSfooterbadge.jpg" alt="Powered By Professional Web Services" class="footer-badge" width="133" height="35">
         </div>
       </div>
@@ -170,15 +168,20 @@
   <!-- Clear Form -->
   <script>
     $(".reset").bind("click", function() {
-      radioTotal = 0;
-      $("input[type=text]").val("");
-      // $("input[type=radio]").attr("checked", false);
-      $(".radio-inline").removeClass('active');
-      $('#storeChildren').collapse('hide');
-      // openAccordion();
-      // $('#storeChildren').removeClass('in');
-      $("#total").html(baseline);
-      $("#generated-quote").html("");
+      location.reload();
+      // radioTotal = 0;
+      // $("input[type=text]").val("");
+      // $(".radio-inline").removeClass('active');
+      // $('#storeChildren').collapse('hide');
+      // $("#total").html(baseline);
+      // $("#generated-quote").html("");
+    });
+  </script>
+
+  <!-- Enable Tooltips -->
+  <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
     });
   </script>
 
