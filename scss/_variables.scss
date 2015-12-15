@@ -15,8 +15,12 @@ $orange:				#ef6c0f;
 
 $body-bg: 				$gray-lighter !important;
 $text-color:			$gray;
+$link-color:			$orange;
+//$link-hover-color:		$orange;
+// $link-hover-decoration:	none;
 
 $line-height-base:       1.428571429 !default; // 20/14
+
 
 //== Fonts
 $font-size-base:		16px;
@@ -26,7 +30,7 @@ $headings-font-weight:	400;
 $headings-color:		$gray-base;
 
 
-
+//== Buttons
 $btn-font-family:		'gt_walsheimblack','Arial Black',sans-serif;
 $btn-font-weight:		400;
 $btn-font-size:			$font-size-base + 2px;
