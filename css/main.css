@@ -5811,7 +5811,7 @@ body {
   -moz-osx-font-smoothing: grayscale; }
 
 #top-bar {
-  background-color: #76c043;
+  background-color: #333;
   color: #fff;
   font-family: "gt_walsheimblack", "Arial Black", sans-serif;
   font-size: 16px -2px;
@@ -5868,7 +5868,7 @@ body {
   width: 100%;
   margin-top: 20px;
   padding: 15px 0;
-  background-color: #76c043;
+  background-color: #333;
   color: #fff;
   font-size: 16px; }
   #footer a {
